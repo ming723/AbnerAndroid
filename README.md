@@ -1,6 +1,6 @@
 # AbnerAndroid
 
-## AbnerAndroid依赖库使用说明：
+### AbnerAndroid依赖库使用说明：
 
 ###### 2017/12/29主要增加，MVP模式
 
@@ -8,10 +8,10 @@
     越小的类，bug越不容易出现，越容易调试，更容易测试，我相信这一点大家是都赞同的。在MVP模式下，View和Model是完全分离没有任何直接关联的(比如你在View层中完全不需要导Model的包，也不应该去关联它们)。使用MVP模式能够更方便的帮助Activity(或Fragment)职责分离，减小类体积，使项目结构更加清晰。
 
     具体使用参考包：mvp/test/下具体实例
------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-一、【请求网络】
-    《设置常用URL》
+
+## 一、【请求网络】
+##### 设置常用URL
          Retrofit retrofit = HttpRetrofit.getmHttpRetrofit().initRetrofit(BaseApi.HTTP_URL_1);
          listenerApi_1 = retrofit.create(ApiListener.class);
 
@@ -20,7 +20,7 @@
 
          ......
 
-    具体使用如下,在使用得地方，新创建类，构造方法初始化（返回字符串使用HttpCallback，返回javabean使用HttpBeanCallback）
+##### 具体使用如下,在使用得地方，新创建类，构造方法初始化（返回字符串使用HttpCallback，返回javabean使用HttpBeanCallback）
 
             public class Test {
                 private  ApiListener apiListener;
@@ -46,7 +46,7 @@
                 }
             }
 
-    《具体类型请求》：
+##### 具体类型请求
             （POST请求）
             @POST("LoginUser.php")
             Call<ResponseBody> getUserInFo(@Query("user_name") String userName, @Query("user_pass") String user_pass);
@@ -61,13 +61,13 @@
             Call<ResponseBody> upload(@Query("user_hidden") String user_hidden,
                                       @Part MultipartBody.Part file);
 
-二、继承使用，activity继承与BaseActivity,fragment继承与BaseFragment：
+## 二、继承使用，activity继承与BaseActivity,fragment继承与BaseFragment：
     方法说明：
         setTitle 设置标题
         showBack 是否显示返回键
         showTitle 是否显示标题
 
-三、注解使用,有两个注解
+## 三、注解使用,有两个注解
     1、使用包find下
         初始化：最好在父类中，在当前类也可以：ViewUtils.inject(this);
 
@@ -84,7 +84,7 @@
     2、使用包view
         初始化：最好在父类中，在当前类也可以：ViewUtils.inject(this);
 
-四、引导页，轮播页，指示器使用：
+## 四、引导页，轮播页，指示器使用：
     1、正常引导页使用
     （布局-------------------------------------------------------------------）
             <com.zhengsr.viewpagerlib.view.GlideViewPager
@@ -764,7 +764,7 @@
                 );
             }
 
-五、沉浸式状态栏的使用
+## 五、沉浸式状态栏的使用
     依赖compile 'org.zackratos:ultimatebar:1.0.3'
 
     1.自定义颜色的状态栏和导航栏
@@ -878,9 +878,9 @@ UltimateBar.newDrawerBuilder()
 
 
 
-下拉刷新
+## 六、下拉刷新
 
-正常得下拉刷新
+   正常得下拉刷新
   TwinklingRefreshLayout refreshLayout = (TwinklingRefreshLayout) findViewById(R.id.refresh);
         ProgressLayout headerView = new ProgressLayout(this);
         refreshLayout.setHeaderView(headerView);
@@ -985,7 +985,7 @@ UltimateBar.newDrawerBuilder()
                   gridView.setAdapter(adapter);
                   adapter.refreshCard();
 
-tabview使用：
+## 七、tabview使用：
    <com.TabView
         android:id="@+id/tabView"
         android:layout_width="match_parent"
